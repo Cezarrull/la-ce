@@ -1,0 +1,134 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #333333;
+
+    --bgHeader: #5c5c5c;
+
+    --bgHome1: #1a1a1a;
+    --bgHome2: #ececec;
+
+    --bgButton: #333333;
+    --bgButtonDay: #aaaaaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.headerBody {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
+    background: var(--bgHeader);
+}
+
+.headerBody .logo {
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+.buttonHeader {
+    width: 45px;
+    height: 20px;
+    border: none;
+    border-radius: 26px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--bgButton);
+}
+
+.buttonHeaderDay {
+    width: 45px;
+    height: 20px;
+    border: none;
+    border-radius: 26px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--bgButtonDay);
+}
+
+.buttonNight {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background: var(--bgHome1);
+    left: 0;
+
+    animation: slide-back 0.4s;
+}
+
+.buttonNightActive {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background: var(--black);
+    left: 0;
+    opacity: 0;
+
+}
+
+.buttonDay {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background: var(--white);
+    right: 0;
+    opacity: 0;
+}
+
+.buttonDayActive {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background: var(--white);
+    right: 0;
+
+    animation: slide-in 0.4s forwards;
+}
+
+.homeBody {
+    height: 100vh;
+    background: var(--bgHome1);
+}
+
+.homeNight {
+    background: var(--bgHome1);
+    color: var(--white);
+}
+
+.homeDay {
+    background: var(--bgHome2);
+    color: var(--black);
+}
+
+@keyframes slide-in {
+    from {
+        left:0
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+}
