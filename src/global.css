@@ -9,7 +9,9 @@
     --bgHome2: #ececec;
 
     --bgButton: #333333;
-    --bgButtonDay: #aaaaaa;
+    --bgbuttonMusic: #b6b6b6c4;
+    --bgbuttonMusicHover: #e7e7e7c4;
+
 
     --shadow: #00000050;
 }
@@ -56,7 +58,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    background: var(--bgButtonDay);
+    background: var(--bgButton);
 }
 
 .buttonNight {
@@ -150,16 +152,19 @@
     gap: 20px;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
+    color: var(--white);
 }
 
 .imageMusic {
     height: 70px;
     width: 70px;
     border-radius: 5px;
+    object-fit: cover;
     box-shadow: 0 0 10px var(--shadow);
 }
 
-.musicControls .buttonMusic {
+.buttonMusicNight,
+.buttonMusicDay  {
     background: none;
     border: none;
     border-radius: 50%;
@@ -169,7 +174,12 @@
     padding: 10px;
     margin: 10px;
     justify-items: center;
-    background: var(--bgButtonDay);
+    background: var(--bgbuttonMusic);
+}
+
+.buttonMusicNight:hover, 
+.buttonMusicDay:hover {
+    background: var(--bgbuttonMusicHover);
 }
 
 .play {
