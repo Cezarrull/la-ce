@@ -200,12 +200,26 @@
     display: flex;
 }
 
-.back {
-    height: 100%;
+.timelineBody {
+    width: 150px;
 }
 
-.next {
-    height: 100%;
+.line {
+    width: 100%;
+    border-radius: 26px;
+    height: 5px;
+    background: var(--bgbuttonMusic);
+    transition: 0.2s;
+}
+
+.line:hover {
+    height: 6px;
+    background: var(--bgbuttonMusicHover);
+}
+
+.time {
+    font-size: 0.765rem;
+    font-family: 'Merriweather', serif;
 }
 
 @keyframes slide-in {

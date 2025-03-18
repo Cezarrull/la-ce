@@ -6,8 +6,6 @@ import fixyouImg from '../Assets/fixyou.jpg'
 
 import play from '../Assets/play.svg'
 import pause from '../Assets/pause.svg'
-import next from '../Assets/caret-line-right-fill.svg'
-import back from '../Assets/caret-line-left-fill.svg'
 
 import audioFile from '../Audios/fixYou.mp3'
 
@@ -43,22 +41,15 @@ export function Home() {
                                 <div className='infoMusic'>
                                     <h2>Fix you</h2>
                                 </div>
-                                
                                 <div className="musicControls">
-                                    <button className={activeNight ? "buttonMusicNight" : "buttonMusicDay"}>
-                                        <img src={back} alt="voltar" className="back"/>
-                                        </button>
                                     <button className={activeNight ? "buttonMusicNight" : "buttonMusicDay"} onClick={handleButtonPlay} >
                                         <img src={play} alt="play" className={playing ? "playOn" : "play"}/>
                                         <img src={pause} alt="pause" className={playing ? "pauseOn" : "pause"}/>
                                     </button>
-                                    <button className={activeNight ? "buttonMusicNight" : "buttonMusicDay"}>
-                                        <img src={next} alt="próxima" className="next"/>
-                                    </button>
-                                </div>
-                                <div className="timelineBody">
-                                    <div className='line'></div>
-                                    <div className='time'></div>
+                                    <div className="timelineBody">
+                                        <div className='line'></div>
+                                        <div className='time'>0:00</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -68,6 +59,3 @@ export function Home() {
         </>
     )
 }
-                /*<audio preload='metadata' controls >
-                    <source src={fixYou} type="audio/mpeg"/>
-                </audio>*/
