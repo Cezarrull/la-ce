@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {Header} from '../Components/Header'
 
 /*import fixYou from '../Audios/fixYou.mp3'*/
@@ -13,10 +13,11 @@ export function Home() {
     const [activeNight, setActiveNight] = useState(true);
     const [playing, setPlaying] = useState(false); 
     const [audio] = useState(new Audio(audioFile));
+    const [currentTime, setCurrentTime] = useState(0);
 
     const toggleNightMode = (activeNight) => {
         setActiveNight(activeNight);
-    }
+    };
 
     const handleButtonPlay = () => {
         if (playing) {
@@ -25,7 +26,25 @@ export function Home() {
             audio.play();
         }
         setPlaying(!playing);
-    }
+    };
+
+    useEffect(() => {
+        const updateTime = () => {
+            setCurrentTime(audio.currentTime);
+        };
+
+        audio.addEventListener('timeupdate', updateTime);
+
+        return () => {
+            audio.removeEventListener('timeupdate', updateTime);
+        };
+    }, [audio]);
+
+    const formatTime = (time) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    };
 
     return(
         <>
@@ -48,7 +67,7 @@ export function Home() {
                                     </button>
                                     <div className="timelineBody">
                                         <div className='line'></div>
-                                        <div className='time'>0:00</div>
+                                        <div className='time'>{formatTime(currentTime)}</div>
                                     </div>
                                 </div>
                             </div>
